@@ -1,0 +1,26 @@
+[project]
+name = "system-tools"
+version = "1.0.0"
+description = "Basic system utilities for MCP server functionality"
+dependencies = []
+authors = [
+    {name = "Ethos Collaborative", email = "tools@ethos.dev"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.uv]
+dev-dependencies = []
+
+[tool.mcp]
+type = "system"
+complexity = "simple"
+category = "utilities"
+tags = ["system", "utilities", "echo", "time", "basic"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

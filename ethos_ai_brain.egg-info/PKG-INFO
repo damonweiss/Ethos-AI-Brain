@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: ethos-ai-brain
+Version: 0.0.1
+Summary: Python library to create an effective AI brain for any project, maintained by Ethos Collaborative.
+Author-email: Damon Weiss <damonweiss@ethoscollaborative.com>
+Maintainer-email: Damon Weiss <damonweiss@ethoscollaborative.com>
+License: MIT
+Project-URL: repository, https://github.com/damonweiss/Ethos-AI-Brain
+Keywords: ai,knowledge
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Private :: Do Not Upload
+Requires-Python: <4.0,>=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: python-dotenv<2.0.0,>=1.0.0
+Requires-Dist: requests<3.0.0,>=2.31.0
+Requires-Dist: pyyaml<7.0,>=6.0
+Requires-Dist: tomli>=2.0.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: flask>=2.3.0
+Requires-Dist: flask-cors>=4.0.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: jinja2>=3.1.0
+Requires-Dist: openai>=1.0.0
+Requires-Dist: anthropic>=0.25.0
+Requires-Dist: cohere>=4.0.0
+Requires-Dist: litellm>=1.0.0
+Requires-Dist: networkx>=3.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: pytest>=7.4.0
+Requires-Dist: pytest-cov>=4.1.0
+Requires-Dist: wheel<1.0.0,>=0.40.0
+Requires-Dist: setuptools>=68.0.0
+Requires-Dist: singleton-decorator<2.0.0,>=1.0.0
+Requires-Dist: Ethos-ZeroMQ@ git+https://github.com/damonweiss/Ethos-ZeroMQ.git@master

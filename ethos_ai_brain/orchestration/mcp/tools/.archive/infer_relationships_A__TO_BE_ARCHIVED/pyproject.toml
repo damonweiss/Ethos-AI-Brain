@@ -1,0 +1,26 @@
+[project]
+name = "infer-relationships"
+version = "1.0.0"
+description = "Intelligently infer relationships between entities using meta-reasoning heuristics"
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "tomli>=2.0.0"
+]
+
+[tool.mcp]
+type = "meta_reasoning_tool"
+category = "relationship_inference"
+namespace = "meta.reasoning.linking"
+priority = "high"
+
+[tool.mcp.capabilities]
+input_types = ["entities", "entity_pairs", "structured_data"]
+output_types = ["relationships", "inferred_links", "heuristic_analysis"]
+processing_type = "intelligent_inference"
+
+[tool.mcp.heuristics]
+semantic_analysis = true
+structural_inference = true
+temporal_reasoning = true
+confidence_scoring = true
+evidence_tracking = true

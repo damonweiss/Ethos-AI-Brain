@@ -1,0 +1,26 @@
+authentication:
+  token: ${GITHUB_TOKEN}
+  type: bearer
+base_url: https://api.github.com
+endpoints:
+  get_user:
+    method: GET
+    parameters:
+      properties: {}
+      required: []
+      type: object
+    path: /user
+  list_repos:
+    method: GET
+    parameters:
+      properties:
+        per_page:
+          default: 10
+          type: integer
+        sort:
+          default: updated
+          type: string
+      required: []
+      type: object
+    path: /user/repos
+name: GitHub

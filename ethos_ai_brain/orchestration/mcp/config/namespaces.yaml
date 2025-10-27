@@ -1,0 +1,149 @@
+# Namespace Configuration for MCP Tools
+# This file defines how tools are organized and discovered
+# Tools declare their namespace in JSON metadata, this YAML defines the namespace behavior
+
+namespaces:
+  meta.reasoning:
+    description: "Meta-reasoning and intelligent orchestration tools"
+    purpose: "Analyze tasks, select tools, and orchestrate execution"
+    task_patterns:
+      - ["analyze", "assess", "complexity", "strategy", "plan"]
+      - ["orchestrate", "coordinate", "manage", "execute", "workflow"]
+      - ["validate", "quality", "check", "review", "verify"]
+      - ["extract", "parameter", "parse", "infer", "determine"]
+  
+  meta.reasoning.analysis:
+    description: "Meta-reasoning analysis tools for task understanding"
+    purpose: "Analyze tasks, extract intent, and assess complexity"
+    task_patterns:
+      - ["analyze", "task", "understand", "break", "down"]
+      - ["intent", "goal", "purpose", "motivation", "objective"]
+      - ["complexity", "difficulty", "resource", "estimate", "assess"]
+  
+  meta.reasoning.planning:
+    description: "Meta-reasoning planning tools for strategy and optimization"
+    purpose: "Discover tools, plan execution, and optimize workflows"
+    task_patterns:
+      - ["discover", "find", "tools", "select", "recommend"]
+      - ["plan", "strategy", "execution", "sequence", "order"]
+      - ["optimize", "improve", "efficiency", "performance", "workflow"]
+  
+  meta.reasoning.execution:
+    description: "Meta-reasoning execution tools for parameter and workflow management"
+    purpose: "Extract parameters, validate inputs, and orchestrate execution"
+    task_patterns:
+      - ["extract", "parameter", "input", "value", "derive"]
+      - ["validate", "check", "verify", "sanitize", "correct"]
+      - ["adapt", "adjust", "modify", "optimize", "tune"]
+      - ["orchestrate", "execute", "coordinate", "manage", "sequence"]
+      - ["dependency", "flow", "order", "relationship", "chain"]
+  
+  meta.reasoning.validation:
+    description: "Meta-reasoning validation tools for quality and completeness"
+    purpose: "Validate results, synthesize outputs, and assess completeness"
+    task_patterns:
+      - ["validate", "verify", "check", "quality", "correctness"]
+      - ["synthesize", "combine", "merge", "integrate", "unify"]
+      - ["complete", "thorough", "comprehensive", "coverage", "gap"]
+  
+  meta.reasoning.linking:
+    description: "Meta-reasoning linking tools for intelligent relationship inference"
+    purpose: "Infer relationships between entities using heuristic analysis"
+    task_patterns:
+      - ["infer", "relationship", "connect", "link", "associate"]
+      - ["semantic", "structural", "temporal", "causal", "heuristic"]
+      - ["confidence", "evidence", "pattern", "similarity", "correlation"]
+    
+  domain.web:
+    description: "Web scraping, validation, and analysis tools"
+    purpose: "Interact with websites and web content"
+    task_patterns:
+      - ["website", "web", "url", "scrape", "html", "webpage"]
+      - ["validate", "check", "ping", "accessibility", "status"]
+      - ["extract", "content", "data", "information", "text"]
+      - ["http", "https", "request", "response", "api"]
+    
+  domain.system:
+    description: "System utilities and information tools"
+    purpose: "Provide system information and basic utilities"
+    task_patterns:
+      - ["time", "timestamp", "date", "clock", "current"]
+      - ["system", "server", "status", "health", "info"]
+      - ["echo", "message", "communicate", "test", "ping"]
+      - ["utility", "helper", "basic", "simple"]
+    
+  external.api:
+    description: "External API integration and management tools"
+    purpose: "Connect to and manage external services"
+    task_patterns:
+      - ["api", "service", "external", "integration", "connect"]
+      - ["authenticate", "auth", "login", "token", "key"]
+      - ["rate", "limit", "throttle", "quota", "usage"]
+      - ["request", "call", "invoke", "execute", "send"]
+
+  graph.building:
+    description: "Graph construction and building tools"
+    purpose: "Build knowledge graphs from structured data"
+    task_patterns:
+      - ["graph", "build", "construct", "create", "generate"]
+      - ["knowledge", "structure", "network", "nodes", "edges"]
+      - ["json", "data", "extract", "transform", "convert"]
+  
+  graph.building.analysis:
+    description: "Graph building analysis tools for entity extraction and relationship discovery"
+    purpose: "Extract entities and discover relationships for graph construction"
+    task_patterns:
+      - ["extract", "entity", "node", "identify", "discover"]
+      - ["relationship", "edge", "connection", "link", "association"]
+      - ["analyze", "pattern", "structure", "hierarchy", "dependency"]
+  
+  graph.building.construction:
+    description: "Graph building construction tools for assembling complete graphs"
+    purpose: "Orchestrate graph construction from entities and relationships"
+    task_patterns:
+      - ["build", "construct", "assemble", "create", "generate"]
+      - ["orchestrate", "coordinate", "combine", "merge", "integrate"]
+      - ["networkx", "graph", "object", "structure", "format"]
+  
+  graph.building.heuristics:
+    description: "Graph building heuristic tools for specialized pattern detection"
+    purpose: "Apply specialized heuristics for detecting specific graph patterns"
+    task_patterns:
+      - ["heuristic", "pattern", "detect", "recognize", "identify"]
+      - ["hierarchy", "tree", "containment", "classification", "taxonomy"]
+      - ["specialized", "domain", "specific", "custom", "targeted"]
+
+# Meta-reasoning strategies for different task types
+reasoning_strategies:
+  simple_task:
+    description: "Single tool execution"
+    criteria: ["single action", "basic request", "one step"]
+    approach: "direct"
+    
+  moderate_task:
+    description: "Multi-tool coordination"
+    criteria: ["multiple steps", "data flow", "validation needed"]
+    approach: "sequential"
+    
+  complex_task:
+    description: "Intelligent orchestration"
+    criteria: ["analysis required", "comprehensive", "research"]
+    approach: "parallel_with_synthesis"
+
+# Quality thresholds for different domains
+quality_standards:
+  meta.reasoning:
+    minimum_score: 0.8
+    validation_required: true
+    
+  domain.web:
+    minimum_score: 0.7
+    retry_on_failure: true
+    
+  domain.system:
+    minimum_score: 0.9
+    fast_execution: true
+    
+  external.api:
+    minimum_score: 0.8
+    error_handling: "graceful"

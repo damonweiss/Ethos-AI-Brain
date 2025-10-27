@@ -1,0 +1,33 @@
+[project]
+name = "web-scraper"
+version = "1.0.0"
+description = "Professional web scraping tool with CSS selectors and error handling"
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0"
+]
+authors = [
+    {name = "Ethos Collaborative", email = "tools@ethos.dev"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0"
+]
+
+[tool.mcp]
+type = "web"
+complexity = "medium"
+category = "web_tools"
+tags = ["web", "scraping", "html", "css-selectors"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

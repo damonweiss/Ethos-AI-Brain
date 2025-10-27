@@ -1,0 +1,21 @@
+authentication:
+  param_name: appid
+  token: ${OPENWEATHERMAP_API_KEY}
+  type: query_param
+base_url: https://api.openweathermap.org/data/2.5
+endpoints:
+  current_weather:
+    method: GET
+    parameters:
+      properties:
+        q:
+          description: City name
+          type: string
+        units:
+          default: metric
+          type: string
+      required:
+      - q
+      type: object
+    path: /weather
+name: OpenWeatherMap

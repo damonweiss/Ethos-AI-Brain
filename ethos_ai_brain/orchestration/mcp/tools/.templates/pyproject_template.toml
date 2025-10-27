@@ -1,0 +1,90 @@
+# MCP Tools pyproject.toml Template
+# 
+# This template shows the standard structure for UV-managed MCP tools.
+# Copy this file to your tool directory and customize as needed.
+
+[project]
+name = "your-tool-name"                    # Tool package name (kebab-case)
+version = "1.0.0"                          # Semantic versioning
+description = "Brief description of your MCP tool"
+dependencies = [
+    # Add your runtime dependencies here
+    # Examples:
+    # "requests>=2.31.0",                  # For HTTP requests
+    # "beautifulsoup4>=4.12.0",           # For HTML parsing
+    # "pandas>=2.0.0",                    # For data processing
+    # "torch>=2.1.0",                     # For AI/ML tools
+]
+authors = [
+    {name = "Your Name", email = "your.email@domain.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.uv]
+# Development dependencies - choose your approach:
+
+# OPTION 1: No dev dependencies (recommended for simple tools)
+# Clean, lightweight, no extra packages installed
+dev-dependencies = []
+
+# OPTION 2: Basic testing only (uncomment if needed)
+# Installs: pytest + 4 transitive deps (pluggy, iniconfig, packaging, colorama)
+# dev-dependencies = ["pytest>=7.0.0"]
+
+# OPTION 3: Full testing suite (uncomment if needed)
+# Installs: pytest + pytest-cov + 7 transitive deps
+# Additional deps: coverage, pygments (for syntax highlighting in reports)
+# dev-dependencies = [
+#     "pytest>=7.0.0",
+#     "pytest-cov>=4.0.0"
+# ]
+
+# DEPENDENCY EXPLANATION:
+# When you add dev-dependencies, you get transitive dependencies:
+#
+# pytest pulls in:
+#   - pluggy (pytest plugin system)
+#   - iniconfig (pytest.ini configuration)
+#   - packaging (version parsing)
+#   - colorama (Windows terminal colors)
+#
+# pytest-cov adds:
+#   - coverage (code coverage engine)
+#   - pygments (syntax highlighting in reports)
+#
+# For simple tools with no external deps, use Option 1 (empty dev-dependencies)
+
+[tool.mcp]
+# MCP-specific metadata for tool discovery and categorization
+type = "simple"                            # Tool type: simple, web, ai, data, etc.
+complexity = "simple"                      # Complexity: simple, medium, heavy
+category = "utilities"                     # Category: utilities, web_tools, ai_tools, etc.
+tags = ["tag1", "tag2", "tag3"]           # Tags for discovery and filtering
+
+[tool.hatch.build.targets.wheel]
+# Tell hatchling which files to include in the package
+packages = ["."]
+
+[build-system]
+# Modern Python packaging with hatchling
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# USAGE INSTRUCTIONS:
+# 1. Copy this template to your tool directory
+# 2. Rename to pyproject.toml
+# 3. Update the [project] section with your tool details
+# 4. Choose your dev-dependencies approach (Option 1, 2, or 3)
+# 5. Update [tool.mcp] metadata
+# 6. Run: uv sync
+# 7. Your tool will be discovered by the UV-first system!
+
+# TOOL DIRECTORY STRUCTURE:
+# your_tool/
+# ├── pyproject.toml    # This file
+# ├── tool.py          # Your tool implementation with TOOLS metadata
+# ├── __init__.py      # Package marker
+# ├── README.md        # Documentation
+# ├── .venv/           # Created by uv sync
+# └── uv.lock          # Created by uv sync

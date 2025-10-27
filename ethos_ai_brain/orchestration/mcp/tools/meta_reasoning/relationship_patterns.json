@@ -1,0 +1,511 @@
+{
+  "goal_intent": [
+    {
+      "name": "infer_goal_relationships",
+      "desc": "Goal alignment and satisfaction [HAS_GOAL, ALIGNS_WITH, SATISFIES]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Parse goal statements and success criteria using keyword matching and structured text analysis"
+    },
+    {
+      "name": "infer_intent_relationships",
+      "desc": "Purpose and objective connections [HAS_INTENT, SERVES_PURPOSE, ACHIEVES_OBJECTIVE]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Extract purpose statements from metadata fields and structured documentation"
+    }
+  ],
+  "preconditions_effects": [
+    {
+      "name": "infer_state_preconditions",
+      "desc": "Required states for actions [REQUIRES_STATE, PRECONDITION_OF, NEEDS]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Parse action specifications and state requirements from planning domain files (PDDL, JSON schemas)"
+    },
+    {
+      "name": "infer_effect_relationships",
+      "desc": "Action outcomes and state changes [ACHIEVES_STATE, RESULTS_IN, CAUSES]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Extract expected outcomes from action definitions and effect specifications"
+    }
+  ],
+  "resources_capabilities": [
+    {
+      "name": "infer_capability_requirements",
+      "desc": "Required capabilities and resources [REQUIRES_CAPABILITY, NEEDS_RESOURCE, USES]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Match action requirements with available capabilities using metadata comparison"
+    },
+    {
+      "name": "infer_resource_dependencies",
+      "desc": "Shared resources and constraints [USES_RESOURCE, SHARES, COMPETES_FOR]",
+      "llm_utility": 5,
+      "strategy": "pattern",
+      "strategy_desc": "Track resource usage patterns through configuration files and usage logs"
+    }
+  ],
+  "cost_utility": [
+    {
+      "name": "infer_cost_relationships",
+      "desc": "Resource costs and economics [HAS_COST, COSTS_MORE_THAN, BUDGET_IMPACT]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Parse cost metadata, pricing configurations, and budget allocation data"
+    },
+    {
+      "name": "infer_utility_relationships",
+      "desc": "Value and benefit analysis [YIELDS_REWARD, PROVIDES_VALUE, BENEFITS]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Extract value metrics from performance data and benefit-cost analysis documents"
+    }
+  ],
+  "policies_rules": [
+    {
+      "name": "infer_permission_relationships",
+      "desc": "Allowed and forbidden actions [PERMITTED_BY, FORBIDDEN_BY, AUTHORIZED_FOR]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Parse access control lists, permission matrices, and authorization configurations"
+    },
+    {
+      "name": "infer_constraint_relationships",
+      "desc": "Policy and rule constraints [CONSTRAINED_BY, ALLOWED_BY, VIOLATES_RULE]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Extract constraints from policy documents, rule engines, and configuration files"
+    },
+    {
+      "name": "infer_compliance_relationships",
+      "desc": "Regulatory and safety requirements [COMPLIES_WITH, REGULATED_BY, MUST_FOLLOW]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Map regulatory frameworks through compliance matrices and requirement traceability"
+    }
+  ],
+  "temporal_planning": [
+    {
+      "name": "infer_scheduling_relationships",
+      "desc": "Temporal scheduling constraints [STARTS_AFTER, ENDS_BEFORE, CONCURRENT_WITH]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Parse scheduling data, calendar entries, and temporal constraint specifications"
+    },
+    {
+      "name": "infer_timing_relationships",
+      "desc": "Precise timing and synchronization [SYNCHRONIZED_WITH, TIMED_WITH, OCCURS_AT]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Extract timing information from timestamps, cron expressions, and synchronization configs"
+    },
+    {
+      "name": "infer_sequence_relationships",
+      "desc": "Before/after/concurrent timing [BEFORE, AFTER, CONCURRENT_WITH]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Parse timestamps and sequence indicators from logs and workflow definitions"
+    }
+  ],
+  "delegation_roles": [
+    {
+      "name": "infer_delegation_relationships",
+      "desc": "Task assignment and responsibility [ASSIGNED_TO, RESPONSIBLE_FOR, DELEGATED_TO]",
+      "llm_utility": 3,
+      "strategy": "parse",
+      "strategy_desc": "Parse organizational charts, RACI matrices, and task assignment configurations"
+    },
+    {
+      "name": "infer_access_relationships",
+      "desc": "Ownership, visibility, and permissions [OWNED_BY, VISIBLE_TO, ACCESSIBLE_BY]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Extract ownership and access metadata from file systems, databases, and access control systems"
+    }
+  ],
+  "learning_feedback": [
+    {
+      "name": "infer_learning_relationships",
+      "desc": "Learning and improvement patterns [IMPROVES_WITH, UPDATED_BY, TRAINED_ON]",
+      "llm_utility": 5,
+      "strategy": "pattern",
+      "strategy_desc": "Use pattern recognition algorithms to identify learning loops and improvement cycles"
+    },
+    {
+      "name": "infer_evaluation_relationships",
+      "desc": "Assessment and evaluation [EVALUATED_BY, MEASURED_BY, ASSESSED_AGAINST]",
+      "llm_utility": 5,
+      "strategy": "pattern",
+      "strategy_desc": "Apply metric correlation analysis and evaluation pattern detection"
+    },
+    {
+      "name": "infer_feedback_relationships",
+      "desc": "Learning and adaptation loops [LEARNS_FROM, ADAPTS_TO, IMPROVES_WITH]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Use feedback loop detection algorithms and adaptive system analysis"
+    }
+  ],
+  "uncertainty_contingency": [
+    {
+      "name": "infer_probabilistic_relationships",
+      "desc": "Stochastic outcomes and alternatives [PROBABILISTICALLY_CAUSES, ALTERNATIVE_TO, LIKELY_LEADS_TO]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply probabilistic reasoning algorithms and Bayesian network analysis"
+    },
+    {
+      "name": "infer_risk_relationships",
+      "desc": "Risk factors and mitigation strategies [HAS_RISK, MITIGATES, INCREASES_RISK]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Use risk assessment algorithms and mitigation strategy pattern matching"
+    },
+    {
+      "name": "infer_contingency_relationships",
+      "desc": "Fallback and recovery plans [FALLBACK_FOR, BACKUP_OF, RECOVERS_FROM]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply contingency planning algorithms and failure mode analysis"
+    }
+  ],
+  "execution_monitoring": [
+    {
+      "name": "infer_checkpoint_relationships",
+      "desc": "Control flow checkpoints [HAS_CHECKPOINT, VERIFIES, VALIDATES]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Parse checkpoint definitions from workflow specifications and monitoring configurations"
+    },
+    {
+      "name": "infer_termination_relationships",
+      "desc": "Execution termination conditions [TERMINATES, STOPS_WHEN, COMPLETES_IF]",
+      "llm_utility": 5,
+      "strategy": "parse",
+      "strategy_desc": "Extract termination conditions from process definitions and completion criteria"
+    },
+    {
+      "name": "infer_monitoring_relationships",
+      "desc": "Checkpoints and verification [MONITORED_BY, CHECKED_BY, VERIFIED_BY]",
+      "llm_utility": 3,
+      "strategy": "parse",
+      "strategy_desc": "Parse monitoring specifications from observability configurations and health check definitions"
+    },
+    {
+      "name": "infer_control_relationships",
+      "desc": "Execution flow and termination [CONTROLS, TERMINATES, MANAGES]",
+      "llm_utility": 3,
+      "strategy": "parse",
+      "strategy_desc": "Analyze control flow patterns from workflow engines and process orchestration configs"
+    }
+  ],
+  "coordination_negotiation": [
+    {
+      "name": "infer_coordination_relationships",
+      "desc": "Multi-agent coordination [COORDINATES_WITH, SYNCHRONIZES_WITH, ALIGNS_WITH]",
+      "llm_utility": 5,
+      "strategy": "pattern",
+      "strategy_desc": "Use coordination pattern analysis and multi-agent system algorithms"
+    },
+    {
+      "name": "infer_blocking_relationships",
+      "desc": "Blocking and dependency conflicts [BLOCKED_BY, WAITS_FOR, DEPENDS_ON_COMPLETION]",
+      "llm_utility": 5,
+      "strategy": "pattern",
+      "strategy_desc": "Apply deadlock detection algorithms and dependency conflict analysis"
+    },
+    {
+      "name": "infer_collaboration_relationships",
+      "desc": "Multi-agent coordination [COLLABORATES_WITH, COORDINATES_WITH, WORKS_WITH]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Use collaboration pattern detection and communication flow analysis"
+    },
+    {
+      "name": "infer_negotiation_relationships",
+      "desc": "Conflict resolution and agreement [NEGOTIATES_WITH, CONFLICTS_WITH, AGREES_ON]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply conflict detection algorithms and negotiation protocol analysis"
+    }
+  ],
+  "context_modes": [
+    {
+      "name": "infer_mode_relationships",
+      "desc": "Operational modes and context switches [OPERATES_IN, SWITCHES_TO, MODE_OF]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Use state machine analysis and mode transition pattern detection"
+    },
+    {
+      "name": "infer_environment_relationships",
+      "desc": "Environmental conditions and validity [VALID_IN, ENVIRONMENT_OF, CONTEXT_FOR]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply context analysis algorithms and environmental constraint validation"
+    }
+  ],
+  "structural_topology": [
+    {
+      "name": "infer_path_hierarchies",
+      "desc": "Path containment relationships [PART_OF, CONTAINS, PARENT_OF]",
+      "llm_utility": 5,
+      "strategy": "pattern",
+      "strategy_desc": "Apply path parsing algorithms to file paths, URLs, and hierarchical identifiers"
+    },
+    {
+      "name": "infer_type_hierarchies",
+      "desc": "Entity type hierarchies [IS_A, TYPE_OF, SUBTYPE_OF]",
+      "llm_utility": 5,
+      "strategy": "pattern",
+      "strategy_desc": "Use inheritance pattern analysis and ontological classification algorithms"
+    },
+    {
+      "name": "infer_hubs",
+      "desc": "Degree centrality hub inference [HUB_OF, CENTRAL_TO, CONNECTS_MANY]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply graph centrality algorithms (degree, betweenness, eigenvector centrality)"
+    },
+    {
+      "name": "infer_bridges",
+      "desc": "Low neighbor connectivity bridge inference [BRIDGES, CONNECTS_TO, LINKS]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Use bridge detection algorithms and articulation point analysis in graph structures"
+    },
+    {
+      "name": "apply_type_clustering",
+      "desc": "Same entity type clustering [SAME_TYPE_AS, CLUSTERED_WITH, TYPE_GROUP]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply clustering algorithms (k-means, hierarchical) based on type similarity metrics"
+    },
+    {
+      "name": "apply_path_clustering",
+      "desc": "Same path prefix clustering [SAME_PATH_AS, PATH_SIBLING, PATH_GROUP]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Use prefix tree algorithms and path similarity clustering techniques"
+    },
+    {
+      "name": "apply_transitive_analysis",
+      "desc": "A→B→C transitive links [TRANSITIVELY_CONNECTED, INDIRECTLY_RELATED, CHAIN_TO]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply graph traversal algorithms (BFS, DFS) to discover transitive relationships"
+    },
+    {
+      "name": "infer_semantic_similarity",
+      "desc": "Content/name similarity matching [SIMILAR_TO, RESEMBLES, LIKE]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Use string similarity algorithms (Levenshtein, Jaccard, cosine similarity) and embedding comparisons"
+    },
+    {
+      "name": "infer_structural_similarity",
+      "desc": "Similar entity patterns [STRUCTURALLY_SIMILAR, SAME_PATTERN, ANALOGOUS_TO]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply structural pattern matching and signature comparison algorithms"
+    },
+    {
+      "name": "infer_outliers_simple",
+      "desc": "Isolated entity integration [OUTLIER, ISOLATED_FROM, ANOMALOUS]",
+      "llm_utility": 2,
+      "strategy": "pattern",
+      "strategy_desc": "Use statistical outlier detection (z-score, IQR) and graph isolation analysis"
+    },
+    {
+      "name": "infer_semantic_hierarchies",
+      "desc": "Semantic composition patterns [COMPOSED_OF, HAS_PART, SEMANTIC_PARENT]",
+      "llm_utility": 3,
+      "strategy": "nlp",
+      "strategy_desc": "Apply NLP parsing (dependency parsing, semantic role labeling) to identify part-of relationships"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "infer_containment_relationships",
+      "desc": "Geographic and logical containment [LOCATED_IN, CONTAINED_BY, WITHIN]",
+      "llm_utility": 5,
+      "strategy": "pattern",
+      "strategy_desc": "Apply spatial containment algorithms and logical hierarchy analysis"
+    },
+    {
+      "name": "infer_functional_dependencies",
+      "desc": "Input/output flows and transformations [DEPENDS_ON, REQUIRES, TRANSFORMS]",
+      "llm_utility": 5,
+      "strategy": "pattern",
+      "strategy_desc": "Use data flow analysis algorithms and dependency graph construction"
+    },
+    {
+      "name": "infer_proximity_relationships",
+      "desc": "Spatial and contextual nearness [NEAR, ADJACENT_TO, CLOSE_TO]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply spatial proximity algorithms (k-nearest neighbors, spatial indexing)"
+    },
+    {
+      "name": "infer_flow_relationships",
+      "desc": "Directional flows and pathways [FLOWS_TO, UPSTREAM_OF, DOWNSTREAM_OF]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Use network flow algorithms and directed graph analysis techniques"
+    },
+    {
+      "name": "infer_lifecycle_relationships",
+      "desc": "State transitions and versioning [EVOLVES_TO, TRANSITIONS_TO, NEXT_VERSION]",
+      "llm_utility": 3,
+      "strategy": "pattern",
+      "strategy_desc": "Apply state machine analysis and version comparison algorithms"
+    },
+    {
+      "name": "infer_causal_dependencies",
+      "desc": "Cause-effect and influence relationships [CAUSES, INFLUENCES, AFFECTS]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Apply causal relation extraction using advanced NLP (causal language models, temporal reasoning)"
+    },
+    {
+      "name": "infer_event_relationships",
+      "desc": "Triggers, results, and causation [TRIGGERS, RESULTS_IN, EVENT_CAUSES]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Use event extraction and causal chain analysis from natural language event descriptions"
+    }
+  ],
+  "communication_interaction": [
+    {
+      "name": "infer_communication_relationships",
+      "desc": "Information flow and messaging [SENDS_TO, RECEIVES_FROM, COMMUNICATES_WITH]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Apply communication pattern analysis using NLP on logs, messages, and interaction data"
+    },
+    {
+      "name": "infer_interaction_relationships",
+      "desc": "System and process interactions [INTERACTS_WITH, INTERFACES_WITH, EXCHANGES_DATA]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Use interaction pattern extraction from natural language descriptions and documentation"
+    }
+  ],
+  "state_condition": [
+    {
+      "name": "infer_state_relationships",
+      "desc": "Current states and conditions [HAS_STATUS, IN_STATE, CURRENT_CONDITION]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Apply named entity recognition and state extraction from natural language status descriptions"
+    },
+    {
+      "name": "infer_violation_relationships",
+      "desc": "Rule and constraint violations [VIOLATES, EXCEEDS_THRESHOLD, BREAKS_RULE]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Use violation detection through natural language rule parsing and constraint extraction"
+    }
+  ],
+  "analytic_predictive": [
+    {
+      "name": "infer_correlation_relationships",
+      "desc": "Statistical correlations [CORRELATED_WITH, ASSOCIATED_WITH, VARIES_WITH]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Apply correlation analysis combined with natural language explanation extraction"
+    },
+    {
+      "name": "infer_prediction_relationships",
+      "desc": "Predictive and forecasting links [PREDICTS, FORECASTS, INDICATES]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Use predictive relationship extraction from natural language forecasting and prediction statements"
+    }
+  ],
+  "versioning_provenance": [
+    {
+      "name": "infer_provenance_relationships",
+      "desc": "Data lineage and origin [GENERATED_BY, DERIVED_FROM, SOURCED_FROM]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Apply provenance extraction using NLP on documentation, comments, and lineage descriptions"
+    },
+    {
+      "name": "infer_version_relationships",
+      "desc": "Version control and evolution [VERSION_OF, UPDATED_FROM, SUPERSEDES]",
+      "llm_utility": 5,
+      "strategy": "nlp",
+      "strategy_desc": "Use version relationship extraction from natural language changelogs and version descriptions"
+    }
+  ],
+  "domain_heuristics": [
+    {
+      "name": "apply_semantic_heuristics",
+      "desc": "Business synonym patterns [SYNONYM_OF, EQUIVALENT_TO, MEANS_SAME_AS]",
+      "llm_utility": 5,
+      "strategy": "domain",
+      "strategy_desc": "Requires comprehensive business domain dictionaries, industry-specific ontologies, and semantic mapping rules"
+    },
+    {
+      "name": "apply_structural_heuristics",
+      "desc": "Intent/constraint/requirement rules [INTENT_OF, CONSTRAINS, REQUIRES]",
+      "llm_utility": 5,
+      "strategy": "domain",
+      "strategy_desc": "Requires deep business process knowledge, rule template libraries, and domain-specific relationship patterns"
+    },
+    {
+      "name": "apply_hierarchical_collection_inference",
+      "desc": "Collection membership with business typing [MEMBER_OF, BELONGS_TO, CLASSIFIED_AS]",
+      "llm_utility": 5,
+      "strategy": "domain",
+      "strategy_desc": "Requires business taxonomy knowledge, organizational structure understanding, and industry classification systems"
+    },
+    {
+      "name": "apply_temporal_heuristics",
+      "desc": "Sequence/causation patterns [OCCURS_BEFORE, TRIGGERS, CAUSED_BY]",
+      "llm_utility": 3,
+      "strategy": "nlp",
+      "strategy_desc": "Use temporal relation extraction, event ordering, and causal language pattern recognition"
+    }
+  ],
+  "validation_construction": [
+    {
+      "name": "validate_relationship_consistency",
+      "desc": "Check for logical conflicts [VALIDATES, CONFLICTS_WITH, CONSISTENT_WITH]",
+      "llm_utility": 5,
+      "strategy": "validation",
+      "strategy_desc": "Apply logical reasoning engines, constraint satisfaction, and consistency checking algorithms"
+    },
+    {
+      "name": "calculate_confidence_scores",
+      "desc": "Relationship quality assessment [HAS_CONFIDENCE, EVIDENCE_STRENGTH, QUALITY_SCORE]",
+      "llm_utility": 5,
+      "strategy": "validation",
+      "strategy_desc": "Use confidence aggregation algorithms, evidence weighting, and quality scoring models"
+    },
+    {
+      "name": "accept_entities_relationships_input",
+      "desc": "Combine validated entities and relationships [ENTITY, HAS_TYPE, HAS_ATTRIBUTE]",
+      "llm_utility": 5,
+      "strategy": "construction",
+      "strategy_desc": "Apply graph construction algorithms and data structure assembly techniques"
+    },
+    {
+      "name": "networkx_graph_construction",
+      "desc": "Apply graph formatting [GRAPH_NODE, GRAPH_EDGE, FORMATTED_AS]",
+      "llm_utility": 5,
+      "strategy": "construction",
+      "strategy_desc": "Use graph serialization, format conversion, and knowledge graph export algorithms"
+    },
+    {
+      "name": "entity_extraction_json",
+      "desc": "Parse JSON keys/values and classify [ENTITY, HAS_TYPE, HAS_ATTRIBUTE]",
+      "llm_utility": 5,
+      "strategy": "construction",
+      "strategy_desc": "Apply JSON parsing, schema analysis, and entity classification algorithms"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ethos-ai-brain"
+version = "0.0.1"
+description = "Python library to create an effective AI brain for any project, maintained by Ethos Collaborative."
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+license = { text = "MIT" }
+authors = [{ name = "Damon Weiss", email = "damonweiss@ethoscollaborative.com" }]
+maintainers = [{ name = "Damon Weiss", email = "damonweiss@ethoscollaborative.com" }]
+keywords = ["ai", "knowledge"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.12",
+  "Private :: Do Not Upload",
+]
+dependencies = [
+  # Core Python utilities
+  "python-dotenv>=1.0.0,<2.0.0",
+  "requests>=2.31.0,<3.0.0",
+  "pyyaml>=6.0,<7.0",
+  "tomli>=2.0.0",
+  "click>=8.1.0",
+  # Web framework
+  "flask>=2.3.0",
+  "flask-cors>=4.0.0",
+  # Data validation and templating
+  "pydantic>=2.0.0",
+  "jinja2>=3.1.0",
+  # AI/ML libraries
+  "openai>=1.0.0",
+  "anthropic>=0.25.0",
+  "cohere>=4.0.0",
+  "litellm>=1.0.0",
+  # Graph and visualization
+  "networkx>=3.0",
+  "matplotlib>=3.7.0",
+  # Testing
+  "pytest>=7.4.0",
+  "pytest-cov>=4.1.0",
+  # Build tools
+  "wheel>=0.40.0,<1.0.0",
+  "setuptools>=68.0.0",
+  # Utilities
+  "singleton-decorator>=1.0.0,<2.0.0",
+  # Custom dependencies
+  "Ethos-ZeroMQ @ git+https://github.com/damonweiss/Ethos-ZeroMQ.git@master",
+]
+
+[project.urls]
+repository = "https://github.com/damonweiss/Ethos-AI-Brain"
+
+# Dev-only tools (install with `uv sync --group dev`)
+[dependency-groups]
+dev = [
+  "black>=23.0.0",           # Code formatting
+  "isort>=5.12.0",           # Import sorting
+  "flake8>=6.0.0",           # Linting
+  "mypy>=1.5.0",             # Type checking
+  "pre-commit>=3.0.0",       # Git hooks
+  "jupyter>=1.0.0",          # Notebooks for experimentation
+  "ipython>=8.0.0",          # Enhanced REPL
+  
+  # Documentation (simplified to avoid version conflicts)
+  "sphinx>=6.1.3,<7.0.0",    # Documentation generator (compatible with Ethos-ZeroMQ)
+  "sphinx-rtd-theme>=1.3.0", # Read the Docs theme
+]
+
+# Tell setuptools how to find your package
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ethos_ai_brain*"]
+
+# If you want to keep this custom metadata, put it under a tool namespace:
+#[tool.ethos.metadata]

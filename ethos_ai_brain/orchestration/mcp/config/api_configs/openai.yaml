@@ -1,0 +1,36 @@
+authentication:
+  token: ${OPENAI_API_KEY}
+  type: bearer
+base_url: https://api.openai.com/v1
+endpoints:
+  chat_completions:
+    method: POST
+    parameters:
+      properties:
+        max_tokens:
+          default: 150
+          type: integer
+        messages:
+          items:
+            properties:
+              content:
+                type: string
+              role:
+                type: string
+            type: object
+          type: array
+        model:
+          default: gpt-3.5-turbo
+          type: string
+      required:
+      - messages
+      type: object
+    path: /chat/completions
+  list_models:
+    method: GET
+    parameters:
+      properties: {}
+      required: []
+      type: object
+    path: /models
+name: OpenAI

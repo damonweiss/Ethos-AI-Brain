@@ -1,0 +1,27 @@
+[project]
+name = "infer-relationships"
+version = "1.0.0"
+description = "Intelligently discover meaningful relationships between entities using heuristic analysis"
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "tomli>=2.0.0"
+]
+
+[tool.mcp]
+type = "graph_building_tool"
+category = "relationship_inference"
+namespace = "graph.building.analysis"
+priority = "high"
+
+[tool.mcp.capabilities]
+input_types = ["entities", "entity_pairs", "structured_data"]
+output_types = ["relationships", "edges", "connections"]
+processing_type = "inference"
+
+[tool.mcp.heuristics]
+hierarchical_detection = true
+temporal_analysis = true
+dependency_inference = true
+semantic_matching = true
+structural_analysis = true
+confidence_scoring = true

@@ -1,0 +1,299 @@
+{
+  "gpt-4o": {
+    "model_id": "gpt-4o",
+    "provider": "openai",
+    "version": "2024-05",
+    "context": {
+      "max_input_tokens": 128000,
+      "max_output_tokens": 16384
+    },
+    "modalities": {
+      "text": true,
+      "vision": true,
+      "audio": false
+    },
+    "features": {
+      "function_calling": true,
+      "json_mode": true,
+      "streaming": true,
+      "tool_use": true
+    },
+    "performance": {
+      "latency_class": "medium",
+      "throughput_class": "medium",
+      "stability_class": "high"
+    },
+    "economics": {
+      "input_cost_per_1k_tokens_usd": 0.0025,
+      "output_cost_per_1k_tokens_usd": 0.01,
+      "currency": "USD",
+      "effective_date": "2025-10-01"
+    },
+    "suitability": {
+      "task_fit": {
+        "reasoning": "high",
+        "summarization": "high",
+        "chat": "high",
+        "coding": "medium",
+        "multimodal_analysis": "high"
+      },
+      "deployment_fit": {
+        "batch": "medium",
+        "real_time": "high",
+        "long_context": "high"
+      }
+    },
+    "limitations": [
+      "High computational cost for real-time operation",
+      "Limited audio support"
+    ]
+  },
+  "gpt-4o-mini": {
+    "model_id": "gpt-4o-mini",
+    "provider": "openai",
+    "version": "2024-10",
+    "context": {
+      "max_input_tokens": 128000,
+      "max_output_tokens": 16384
+    },
+    "modalities": {
+      "text": true,
+      "vision": true,
+      "audio": false
+    },
+    "features": {
+      "function_calling": true,
+      "json_mode": true,
+      "streaming": true,
+      "tool_use": true
+    },
+    "performance": {
+      "latency_class": "medium",
+      "throughput_class": "medium",
+      "stability_class": "high"
+    },
+    "economics": {
+      "input_cost_per_1k_tokens_usd": 0.00015,
+      "output_cost_per_1k_tokens_usd": 0.0006,
+      "currency": "USD",
+      "effective_date": "2025-10-01"
+    },
+    "suitability": {
+      "task_fit": {
+        "reasoning": "high",
+        "summarization": "high",
+        "chat": "high",
+        "coding": "medium",
+        "multimodal_analysis": "high"
+      },
+      "deployment_fit": {
+        "batch": "medium",
+        "real_time": "high",
+        "long_context": "high"
+      }
+    },
+    "limitations": [
+      "Limited to text and vision input; does not support audio.",
+      "Higher costs due to increased token processing capabilities.",
+      "Potential latency with very large input contexts."
+    ]
+  },
+  "gpt-4-turbo": {
+    "model_id": "gpt-4-turbo",
+    "provider": "openai",
+    "version": "2023-10",
+    "context": {
+      "max_input_tokens": 128000,
+      "max_output_tokens": 4096
+    },
+    "modalities": {
+      "text": true,
+      "vision": true,
+      "audio": false
+    },
+    "features": {
+      "function_calling": true,
+      "json_mode": false,
+      "streaming": true,
+      "tool_use": true
+    },
+    "performance": {
+      "latency_class": "medium",
+      "throughput_class": "medium",
+      "stability_class": "high"
+    },
+    "economics": {
+      "input_cost_per_1k_tokens_usd": 0.01,
+      "output_cost_per_1k_tokens_usd": 0.03,
+      "currency": "USD",
+      "effective_date": "2023-10-01"
+    },
+    "suitability": {
+      "task_fit": {
+        "reasoning": "high",
+        "summarization": "high",
+        "chat": "high",
+        "coding": "medium",
+        "multimodal_analysis": "high"
+      },
+      "deployment_fit": {
+        "batch": "medium",
+        "real_time": "high",
+        "long_context": "high"
+      }
+    },
+    "limitations": [
+      "Potential high cost for extensive token processing",
+      "Limited output length at 4096 tokens may constrain large-scale text generation tasks",
+      "Dependence on stable internet connection for streaming features"
+    ]
+  },
+  "gpt-3.5-turbo": {
+    "model_id": "gpt-3.5-turbo",
+    "provider": "openai",
+    "version": "2023-03",
+    "context": {
+      "max_input_tokens": 16385,
+      "max_output_tokens": 4096
+    },
+    "modalities": {
+      "text": true,
+      "vision": false,
+      "audio": false
+    },
+    "features": {
+      "function_calling": true,
+      "json_mode": false,
+      "streaming": true,
+      "tool_use": true
+    },
+    "performance": {
+      "latency_class": "medium",
+      "throughput_class": "medium",
+      "stability_class": "high"
+    },
+    "economics": {
+      "input_cost_per_1k_tokens_usd": 0.0005,
+      "output_cost_per_1k_tokens_usd": 0.0015,
+      "currency": "USD",
+      "effective_date": "2025-10-01"
+    },
+    "suitability": {
+      "task_fit": {
+        "reasoning": "high",
+        "summarization": "high",
+        "chat": "high",
+        "coding": "medium",
+        "multimodal_analysis": "medium"
+      },
+      "deployment_fit": {
+        "batch": "medium",
+        "real_time": "high",
+        "long_context": "high"
+      }
+    },
+    "limitations": [
+      "Does not support direct vision processing",
+      "Limited to textual and function-calling applications"
+    ]
+  },
+  "claude-3-5-sonnet-20241022": {
+    "model_id": "claude-3-5-sonnet-20241022",
+    "provider": "anthropic",
+    "version": "2024-10",
+    "context": {
+      "max_input_tokens": 200000,
+      "max_output_tokens": 8192
+    },
+    "modalities": {
+      "text": true,
+      "vision": true,
+      "audio": false
+    },
+    "features": {
+      "function_calling": true,
+      "json_mode": true,
+      "streaming": true,
+      "tool_use": true
+    },
+    "performance": {
+      "latency_class": "medium",
+      "throughput_class": "medium",
+      "stability_class": "high"
+    },
+    "economics": {
+      "input_cost_per_1k_tokens_usd": 0.003,
+      "output_cost_per_1k_tokens_usd": 0.015,
+      "currency": "USD",
+      "effective_date": "2025-10-01"
+    },
+    "suitability": {
+      "task_fit": {
+        "reasoning": "high",
+        "summarization": "high",
+        "chat": "high",
+        "coding": "medium",
+        "multimodal_analysis": "high"
+      },
+      "deployment_fit": {
+        "batch": "medium",
+        "real_time": "high",
+        "long_context": "high"
+      }
+    },
+    "limitations": [
+      "Limited audio support",
+      "Suboptimal for tasks requiring low latency"
+    ]
+  },
+  "claude-3-haiku-20240307": {
+    "model_id": "claude-3-haiku-20240307",
+    "provider": "anthropic",
+    "version": "2024-03",
+    "context": {
+      "max_input_tokens": 200000,
+      "max_output_tokens": 4096
+    },
+    "modalities": {
+      "text": true,
+      "vision": true,
+      "audio": false
+    },
+    "features": {
+      "function_calling": true,
+      "json_mode": true,
+      "streaming": true,
+      "tool_use": true
+    },
+    "performance": {
+      "latency_class": "medium",
+      "throughput_class": "medium",
+      "stability_class": "high"
+    },
+    "economics": {
+      "input_cost_per_1k_tokens_usd": 0.00025,
+      "output_cost_per_1k_tokens_usd": 0.00125,
+      "currency": "USD",
+      "effective_date": "2023-10-01"
+    },
+    "suitability": {
+      "task_fit": {
+        "reasoning": "high",
+        "summarization": "high",
+        "chat": "high",
+        "coding": "medium",
+        "multimodal_analysis": "high"
+      },
+      "deployment_fit": {
+        "batch": "medium",
+        "real_time": "high",
+        "long_context": "high"
+      }
+    },
+    "limitations": [
+      "Limited audio modality support",
+      "Performance may vary with maximum token utilization",
+      "Potentially high operational costs for large-scale deployments"
+    ]
+  }
+}
