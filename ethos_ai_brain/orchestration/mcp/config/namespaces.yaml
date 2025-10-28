@@ -3,6 +3,13 @@
 # Tools declare their namespace in JSON metadata, this YAML defines the namespace behavior
 
 namespaces:
+  default:
+    description: "Default namespace for uncategorized tools"
+    purpose: "Fallback namespace for tools without explicit namespace assignment"
+    task_patterns:
+      - ["general", "utility", "basic", "simple", "default"]
+      - ["uncategorized", "misc", "other", "generic"]
+
   meta.reasoning:
     description: "Meta-reasoning and intelligent orchestration tools"
     purpose: "Analyze tasks, select tools, and orchestrate execution"
@@ -48,6 +55,15 @@ namespaces:
   
   meta.reasoning.linking:
     description: "Meta-reasoning linking tools for intelligent relationship inference"
+    purpose: "Infer relationships between entities using heuristic analysis"
+    task_patterns:
+      - ["infer", "relationship", "connect", "link", "associate"]
+      - ["semantic", "structural", "temporal", "causal", "heuristic"]
+      - ["confidence", "evidence", "pattern", "similarity", "correlation"]
+    
+  # Alternative namespace format for compatibility
+  meta_reasoning.linking:
+    description: "Meta-reasoning linking tools (underscore format)"
     purpose: "Infer relationships between entities using heuristic analysis"
     task_patterns:
       - ["infer", "relationship", "connect", "link", "associate"]
@@ -112,6 +128,14 @@ namespaces:
       - ["heuristic", "pattern", "detect", "recognize", "identify"]
       - ["hierarchy", "tree", "containment", "classification", "taxonomy"]
       - ["specialized", "domain", "specific", "custom", "targeted"]
+
+  graph.analysis:
+    description: "Graph analysis and relationship inference tools"
+    purpose: "Analyze existing graphs and infer new relationships"
+    task_patterns:
+      - ["analyze", "graph", "network", "structure", "topology"]
+      - ["infer", "relationship", "connection", "link", "association"]
+      - ["pattern", "detect", "discover", "identify", "extract"]
 
 # Meta-reasoning strategies for different task types
 reasoning_strategies:

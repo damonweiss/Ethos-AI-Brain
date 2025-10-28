@@ -12,14 +12,14 @@ project_root = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(project_root))
 
 try:
-    from ethos_ai_brain.orchestration.mcp.tools.namespace_registry import NamespaceRegistry
+    from ethos_ai_brain.orchestration.mcp.tool_management.namespace_registry import ConfigurableNamespaceRegistry as NamespaceRegistry
     HAS_NAMESPACE_REGISTRY = True
 except ImportError:
     HAS_NAMESPACE_REGISTRY = False
     NamespaceRegistry = None
 
 try:
-    from ethos_ai_brain.orchestration.mcp.tools.validate_tools import validate_tools
+    from ethos_ai_brain.orchestration.mcp.tool_management.validate_tools import validate_tool_metadata as validate_tools
     HAS_VALIDATE_TOOLS = True
 except ImportError:
     HAS_VALIDATE_TOOLS = False
@@ -29,7 +29,7 @@ except ImportError:
 def test_mcp_tools_module_exists():
     """Test that MCP tools module can be imported"""
     try:
-        from ethos_ai_brain.orchestration.mcp.tools import __init__
+        from ethos_ai_brain.orchestration.mcp.tool_management import __init__
         assert True  # If we get here, import worked
         
     except ImportError as e:
@@ -52,13 +52,13 @@ def test_validate_tools_function():
 
 def test_mcp_tools_directory_structure():
     """Test MCP tools directory structure"""
-    tools_path = Path(__file__).resolve().parents[4] / "ethos_ai_brain" / "orchestration" / "mcp" / "tools"
+    tools_path = Path(__file__).resolve().parents[4] / "ethos_ai_brain" / "orchestration" / "mcp_tools"
     
     assert tools_path.exists()
     assert tools_path.is_dir()
     
     # Check for expected subdirectories
-    expected_dirs = ["utilities", "api_management"]
+    expected_dirs = ["utilities", "ai_tools", "meta_reasoning"]
     for dir_name in expected_dirs:
         dir_path = tools_path / dir_name
         if dir_path.exists():

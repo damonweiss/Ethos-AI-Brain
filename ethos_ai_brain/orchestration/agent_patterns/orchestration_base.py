@@ -20,9 +20,8 @@ sys.path.append(
     os.path.join(os.path.dirname(__file__), '..', '..', '..', '..', '..', 'PycharmProjects', 'Ethos-ZeroMQ'))
 
 from ethos_zeromq import *
-from ..zmq_integration.zmq_node_base import (
-    ZMQNode, ProcessorInterface, ProcessorType, ProcessingRequest, ProcessingResponse,
-    LLMProcessor, MCPToolProcessor, UserInputProcessor, CustomLogicProcessor
+from ...core.zeromq.zmq_node_base import (
+    ProcessorType, ProcessingRequest, ProcessingResponse, ProcessorInterface, ZMQNode
 )
 
 
@@ -95,6 +94,9 @@ class AgentOrchestrationBase(ABC):
 
         # Child agents managed by this orchestrator
         self.child_agents: Dict[str, 'AgentOrchestrationBase'] = {}
+
+        # AI Brain for decision making (placeholder - can be set later)
+        self.brain = None
 
         # ZMQ Node container with processors (ONLY ZMQ infrastructure)
         self.node = self._create_node(processors or [])

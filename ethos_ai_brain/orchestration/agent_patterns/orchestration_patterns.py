@@ -11,7 +11,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..', '..', 'PycharmProjects', 'Ethos-ZeroMQ'))
 
-from orchestration_base import (
+from .orchestration_base import (
     AgentOrchestrationBase,
     OrchestrationPattern,
     AgentMessage,
@@ -34,12 +34,17 @@ class SupervisorOrchestrator(AgentOrchestrationBase):
         self.agent_assignments: Dict[str, str] = {}  # task_type -> agent_id
         self.agent_workloads: Dict[str, int] = {}    # agent_id -> current_tasks
 
-    async def _start_orchestration(self):
-        """Start supervisor orchestration"""
+    async def _initialize_orchestration(self):
+        """Initialize supervisor orchestration"""
         print(f"🎯 Supervisor {self.agent_id} ready to coordinate {len(self.child_agents)} agents")
 
         # Analyze child agent capabilities for smart assignment
         await self._analyze_agent_capabilities()
+
+    async def _start_orchestration(self):
+        """Start supervisor orchestration"""
+        print(f"🎯 Supervisor {self.agent_id} starting orchestration")
+        # Additional startup logic can go here
 
     async def _analyze_agent_capabilities(self):
         """Use LLM to analyze and categorize child agent capabilities"""
